@@ -1,10 +1,10 @@
 pkgname=groonga-gobject
 pkgver=1.0.1
-pkgrel=1
-pkgdesc="An opensource fulltext search engine."
+pkgrel=2
+pkgdesc="GObject wrapper of Groonga."
 arch=('i686' 'x86_64')
 url="http://groonga.org/"
-license=('LGPL2')
+license=('LGPL3')
 source=("http://packages.groonga.org/source/groonga-gobject/$pkgname-$pkgver.tar.gz")
 depends=('groonga' 'gobject-introspection')
 optdepends=('cutter-test_framework')
