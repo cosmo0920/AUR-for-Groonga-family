@@ -38,4 +38,4 @@ package() {
 
     install_package
 }
-sha256sums=('8d97859fb3cb1711193a3076b3a471f55a297a5cda59ba14a19b43e4a647ce91')
+sha1sums=('1e97f24fc48cb7277699d21280bdf6932475ed25')
