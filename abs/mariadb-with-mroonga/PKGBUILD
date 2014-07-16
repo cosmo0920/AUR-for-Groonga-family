@@ -3,9 +3,11 @@ pkgver=4.03
 pkgrel=1
 pkgdesc="Fast fulltext search on MySQL(MariaDB and groonga bundled package)."
 mariadbver=10.0.11
+groongaver=4.0.2
 arch=('i686' 'x86_64')
 url="http://mroonga.org/"
 license=('LGPL2')
+provides=("groonga=$groongaver")
 source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz
         mariadb.service
         mariadb-post.sh)
