@@ -6,9 +6,10 @@ mariadbver=10.0.11
 arch=('i686' 'x86_64')
 url="http://mroonga.org/"
 license=('LGPL2')
-source=("http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz")
+source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz
+        https://projects.archlinux.org/svntogit/packages.git/plain/trunk/mariadb.service?h=packages/mariadb)
 makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'openssl' 'pcre')
-conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb')
+conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients')
 optdepends=('cutter-test_framework' 'ruby')
 
 build() {
@@ -58,5 +59,12 @@ build() {
 package() {
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
+
+    #for mysqlclient
+    make -C client DESTDIR="$pkgdir" install
+
+    install -Dm755 scripts/mytop "$pkgdir"/usr/bin/mytop
+    install -Dm644 ../mariadb "$pkgdir"/usr/lib/systemd/system/mysqld.service
 }
-md5sums=('cf53007d47682bf085eba51574cd0ef2')
+md5sums=('cf53007d47682bf085eba51574cd0ef2'
+         'd488fffa9f62f9949c4aa1bb6e6db692')
