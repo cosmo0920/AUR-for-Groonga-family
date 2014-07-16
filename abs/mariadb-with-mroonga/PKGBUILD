@@ -1,15 +1,16 @@
 pkgname=mroonga
 pkgver=4.03
 pkgrel=1
-pkgdesc="Fast fulltext search on MySQL(MariaDB bundled package)."
+pkgdesc="Fast fulltext search on MySQL(MariaDB and groonga bundled package)."
 mariadbver=10.0.11
 arch=('i686' 'x86_64')
 url="http://mroonga.org/"
 license=('LGPL2')
 source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz
-        https://projects.archlinux.org/svntogit/packages.git/plain/trunk/mariadb.service?h=packages/mariadb)
+        mariadb.service
+        mariadb-post.sh)
 makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'openssl' 'pcre')
-conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients')
+conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients' 'groonga')
 optdepends=('cutter-test_framework' 'ruby')
 
 build() {
@@ -60,8 +61,8 @@ package() {
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
-    install -Dm755 scripts/mytop "$pkgdir"/usr/bin/mytop
     install -Dm644 ../mariadb "$pkgdir"/usr/lib/systemd/system/mysqld.service
 }
 md5sums=('cf53007d47682bf085eba51574cd0ef2'
-         'd488fffa9f62f9949c4aa1bb6e6db692')
+         '6fcdd7f6aeef1f64a0ecbe4f440abbcf'
+         'b79e65a5aa536e6b5bc60988eb0b78a2')
