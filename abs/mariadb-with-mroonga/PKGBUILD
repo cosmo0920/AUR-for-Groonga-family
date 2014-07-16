@@ -61,6 +61,7 @@ package() {
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
+    install -Dm755 ../mariadb-post.sh "$pkgdir"/usr/bin/mysqld-post
     install -Dm644 ../mariadb "$pkgdir"/usr/lib/systemd/system/mysqld.service
 }
 md5sums=('cf53007d47682bf085eba51574cd0ef2'
