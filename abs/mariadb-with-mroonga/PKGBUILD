@@ -1,0 +1,25 @@
+pkgname=mroonga
+pkgver=4.03
+pkgrel=1
+pkgdesc="Fast fulltext search on MySQL(MariaDB bundled package)."
+mariadbver=10.0.11
+arch=('i686' 'x86_64')
+url="http://mroonga.org/"
+license=('LGPL2')
+source=("http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz")
+depends=('cmake' 'groonga' 'mecab' 'mecab-ipadic')
+conflicts=('mariadb')
+optdepends=('cutter-test_framework' 'ruby')
+
+build() {
+    cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
+    cmake .
+
+    make
+}
+
+package() {
+        cd $srcdir/$pkgname-$pkgver
+        make DESTDIR="$pkgdir" install
+}
+md5sums=('cf53007d47682bf085eba51574cd0ef2')
