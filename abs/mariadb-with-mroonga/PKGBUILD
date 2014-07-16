@@ -63,6 +63,10 @@ package() {
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
+    # not needed for using Mroonga just for testing.
+    rm -r usr/{data,mysql-test,sql-bench}
+    rm usr/share/man/man1/mysql-test-run.pl.1
+
     install -Dm755 ../mariadb-post.sh "$pkgdir"/usr/bin/mysqld-post
     install -Dm644 ../mariadb.service "$pkgdir"/usr/lib/systemd/system/mysqld.service
 }
