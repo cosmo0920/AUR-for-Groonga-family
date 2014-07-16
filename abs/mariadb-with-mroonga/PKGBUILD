@@ -56,7 +56,7 @@ build() {
 }
 
 package() {
-        cd $srcdir/$pkgname-$pkgver
-        make DESTDIR="$pkgdir" install
+    cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
+    make DESTDIR="$pkgdir" install
 }
 md5sums=('cf53007d47682bf085eba51574cd0ef2')
