@@ -60,9 +60,6 @@ package() {
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
-    #for mysqlclient
-    make -C client DESTDIR="$pkgdir" install
-
     install -Dm755 scripts/mytop "$pkgdir"/usr/bin/mytop
     install -Dm644 ../mariadb "$pkgdir"/usr/lib/systemd/system/mysqld.service
 }
