@@ -12,7 +12,7 @@ source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkg
         mariadb.service
         mariadb-post.sh
         mariadb-tmpfile.conf)
-makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'openssl' 'pcre')
+makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'pcre')
 conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients' 'groonga')
 depends=('perl' 'inetutils' 'libaio' 'libxml2' 'pcre')
 optdepends=('cutter-test_framework' 'ruby')
