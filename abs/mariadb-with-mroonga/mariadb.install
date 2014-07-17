@@ -3,18 +3,18 @@ if [[ $(command -v my_print_defaults >/dev/null 2>&1) ]]; then
 fi
 [[ -z $datadir ]] && datadir=/var/lib/mysql
 
-install_mroonga() {
-  systemctl start mysqld
-  sleep 1
-  /usr/bin/mysql -u root < /usr/share/mroonga/install.sql
-  systemctl stop mysqld
+install_mroonga_announce() {
+  install_sql=/usr/share/mroonga/install.sql
+  echo "run the following command to register Mroonga:"; \
+  command="/usr/bin/mysql -u root < ${install_sql}"
+  echo $command
 }
 
-uninstall_mroonga() {
-  systemctl start mysqld
-  sleep 1
-  /usr/bin/mysql -u root < /usr/share/mroonga/uninstall.sql
-  systemctl stop mysqld
+uninstall_mroonga_announce() {
+  uninstall_sql=/usr/share/mroonga/uninstall.sql
+  echo "run the following command to unregister Mroonga:"; \
+  command="/usr/bin/mysql -u root < ${uninstall_sql}"
+  echo $command
 }
 
 post_install(){
@@ -27,7 +27,8 @@ post_install(){
     chown -R mysql:mysql var/lib/mysql &>/dev/null
   fi
 
-  install_mroonga
+  install_mroonga_announce
+  uninstall_mroonga_announce
   usr/bin/systemd-tmpfiles --create mysql.conf
 }
 
@@ -51,10 +52,6 @@ post_upgrade(){
     echo ":: Major version update. Consider restarting mysqld.service and"
     echo "   running mysql_upgrade afterwards."
   fi
-}
-
-pre_remove(){
-  uninstall_mroonga
 }
 
 post_remove(){
