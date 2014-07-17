@@ -14,7 +14,7 @@ source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkg
         mariadb-tmpfile.conf)
 makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'openssl' 'pcre')
 conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients' 'groonga')
-depends=('perl' 'perl-dbd-mysql' 'perl-term-readkey' 'inetutils' 'libaio' 'libxml2' 'pcre')
+depends=('perl' 'inetutils' 'libaio' 'libxml2' 'pcre')
 optdepends=('cutter-test_framework' 'ruby')
 
 build() {
@@ -63,6 +63,7 @@ build() {
 
 package() {
     backup=('etc/mysql/my.cnf')
+    install=mariadb.install
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
