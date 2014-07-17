@@ -3,6 +3,20 @@ if [[ $(command -v my_print_defaults >/dev/null 2>&1) ]]; then
 fi
 [[ -z $datadir ]] && datadir=/var/lib/mysql
 
+install_mroonga() {
+  systemctl start mysqld
+  sleep 1
+  /usr/bin/mysql -u root < /usr/share/mroonga/install.sql
+  systemctl stop mysqld
+}
+
+uninstall_mroonga() {
+  systemctl start mysqld
+  sleep 1
+  /usr/bin/mysql -u root < /usr/share/mroonga/uninstall.sql
+  systemctl stop mysqld
+}
+
 post_install(){
   groupadd -g 89 mysql &>/dev/null
   useradd -u 89 -g mysql -d $datadir -s /bin/false mysql &>/dev/null
@@ -13,6 +27,7 @@ post_install(){
     chown -R mysql:mysql var/lib/mysql &>/dev/null
   fi
 
+  install_mroonga
   usr/bin/systemd-tmpfiles --create mysql.conf
 }
 
@@ -36,6 +51,10 @@ post_upgrade(){
     echo ":: Major version update. Consider restarting mysqld.service and"
     echo "   running mysql_upgrade afterwards."
   fi
+}
+
+pre_remove(){
+  uninstall_mroonga
 }
 
 post_remove(){
