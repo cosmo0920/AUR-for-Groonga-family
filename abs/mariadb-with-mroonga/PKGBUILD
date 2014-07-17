@@ -7,12 +7,14 @@ groongaver=4.0.2
 arch=('i686' 'x86_64')
 url="http://mroonga.org/"
 license=('LGPL2')
-provides=("groonga=$groongaver")
+provides=("groonga=$groongaver" "mysql-clients=$pkgver" "mysql=$pkgver" "libmysqlclient=$pkgver")
 source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz
         mariadb.service
-        mariadb-post.sh)
+        mariadb-post.sh
+        mariadb-tmpfile.conf)
 makedepends=('cmake' 'openssl' 'zlib' 'libaio' 'libxml2' 'openssl' 'pcre')
 conflicts=('libmariadbclient' 'mariadb-clients' 'mytop' 'mariadb' 'mysql' 'libmysqlclient' 'mysql-clients' 'groonga')
+depends=('perl' 'perl-dbd-mysql' 'perl-term-readkey' 'inetutils' 'libaio' 'libxml2' 'pcre')
 optdepends=('cutter-test_framework' 'ruby')
 
 build() {
@@ -60,6 +62,7 @@ build() {
 }
 
 package() {
+    backup=('etc/mysql/my.cnf')
     cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
     make DESTDIR="$pkgdir" install
 
@@ -69,7 +72,9 @@ package() {
 
     install -Dm755 ../mariadb-post.sh "$pkgdir"/usr/bin/mysqld-post
     install -Dm644 ../mariadb.service "$pkgdir"/usr/lib/systemd/system/mysqld.service
+    install -Dm644 ../mariadb-tmpfile.conf "$pkgdir"/usr/lib/tmpfiles.d/mysql.conf
 }
 md5sums=('cf53007d47682bf085eba51574cd0ef2'
          '6fcdd7f6aeef1f64a0ecbe4f440abbcf'
-         'b79e65a5aa536e6b5bc60988eb0b78a2')
+         'b79e65a5aa536e6b5bc60988eb0b78a2'
+         '2fa6e456964d4ff5e6d4f9ff0126aed6')
