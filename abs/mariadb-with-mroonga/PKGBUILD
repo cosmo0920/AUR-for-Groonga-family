@@ -7,7 +7,7 @@ groongaver=4.0.2
 arch=('i686' 'x86_64')
 url="http://mroonga.org/"
 license=('LGPL2')
-provides=("groonga=$groongaver" "mysql-clients=$pkgver" "mysql=$pkgver" "libmysqlclient=$pkgver")
+provides=("groonga=$groongaver" "mysql-clients=$mariadbver" "mysql=$mariadbver" "libmysqlclient=$mariadbver")
 source=(http://packages.groonga.org/source/mroonga/mariadb-$mariadbver-with-$pkgname-$pkgver.tar.gz
         mariadb.service
         mariadb-post.sh
