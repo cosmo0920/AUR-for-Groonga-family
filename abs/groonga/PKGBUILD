@@ -18,7 +18,8 @@ build() {
     --with-zlib \
     --enable-shared=yes \
     --enable-static=yes \
-    --with-mecab
+    --with-mecab \
+    --with-mruby
 
     make
 }
