@@ -1,6 +1,6 @@
 pkgname=mroonga
 pkgver=4.06
-pkgrel=1
+pkgrel=2
 pkgdesc="Fast fulltext search on MySQL(MariaDB and groonga bundled package)."
 mariadbver=10.0.14
 groongaver=4.0.6
