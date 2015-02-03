@@ -6,4 +6,5 @@ AUR PKGBUILD for Groonga
 * groonga-gobject
 * friso
 * groonga-tokenizer-friso
+* pgroonga
 * swath
