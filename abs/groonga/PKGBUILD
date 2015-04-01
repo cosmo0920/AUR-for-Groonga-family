@@ -6,8 +6,8 @@ arch=('i686' 'x86_64')
 url="http://groonga.org/"
 license=('LGPL2')
 source=("http://packages.groonga.org/source/groonga/$pkgname-$pkgver.tar.gz")
-depends=('zlib' 'lz4' 'glib2' 'libedit' 'zeromq' 'libevent' 'mecab' 'mecab-ipadic')
-optdepends=('cutter-test_framework' 'ruby' 'mercurial' 'kytea' 'snowball-c')
+depends=('zlib' 'lz4' 'glib2' 'libedit' 'zeromq' 'libevent' 'mecab' 'mecab-naist-jdic')
+optdepends=('cutter-test_framework' 'ruby' 'mercurial' 'kytea' 'snowball-c' 'mecab-ipadic')
 
 build() {
     cd $srcdir/$pkgname-$pkgver
