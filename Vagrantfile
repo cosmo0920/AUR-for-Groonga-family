@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "arch"
-  # config.vm.box_url = <path to ArchLinux box>
+  config.vm.box_url = "./packer-arch/packer_arch_virtualbox.box"
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
