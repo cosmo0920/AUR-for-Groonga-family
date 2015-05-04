@@ -1,6 +1,6 @@
 pkgname=pgroonga
 pkgver=0.5.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Fast fulltext search on PostgreSQL."
 arch=('i686' 'x86_64')
 url="https://github.com/pgroonga/pgroonga"
@@ -28,7 +28,7 @@ package() {
 	echo "                        WARNING!                             "
 	echo "*************************************************************"
 	echo "PGroonga 0.5.0 does not have backward compatibility!"
-	echo "please see the PGroonga 0.4.0 release note."
+	echo "please see the PGroonga 0.5.0 release note."
 	echo "https://github.com/pgroonga/pgroonga/blob/master/news.md#050-2015-04-29"
 	echo "If you want to upgrade PGroonga 0.5.0 from 0.4.0,"
 	echo "please re-create index for PGroonga with following command:"
