@@ -1,4 +1,4 @@
-from base/archlinux
+from l3iggs/archlinux
 
 maintainer Hiroshi Hatake <cosmo0920.wp@gmail.com>
 
