@@ -24,21 +24,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   $script = <<-SCRIPT
   echo "Installing pkgbuild-introspection..."
-  sudo pacman -Sy --noconfirm pkgbuild-introspection
+  sudo pacman -Sy --noconfirm pkgbuild-introspection yajl
   echo "Installing yaourt..."
+  cd ~
   curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
   tar zxvf package-query.tar.gz
   cd package-query
-  makepkg -si --noconfirm --asroot
-  cd ..
+  makepkg -si --noconfirm
+  sudo pacman -U package-query-*.pkg.tar.xz --noconfirm
+  cd ~
   curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
   tar zxvf yaourt.tar.gz
   cd yaourt
-  makepkg -si --noconfirm --asroot
-  cd ..
+  makepkg -si --noconfirm
+  sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm
+  cd ~
   echo "enable parallel build..."
   sudo sed -i -e 's/^#MAKEFLAGS/MAKEFLAGS/g' /etc/makepkg.conf
   SCRIPT
 
-  config.vm.provision :shell, inline: $script
+  config.vm.provision :shell, inline: $script, privileged: false
 end
