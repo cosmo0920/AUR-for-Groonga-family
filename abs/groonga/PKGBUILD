@@ -1,6 +1,6 @@
 pkgname=groonga
-pkgver=5.0.3
-pkgrel=3
+pkgver=5.0.4
+pkgrel=1
 pkgdesc="An opensource fulltext search engine."
 arch=('i686' 'x86_64' 'armv7h')
 url="http://groonga.org/"
@@ -34,4 +34,4 @@ package() {
     # cleanup
     rm -r "${pkgdir}/var/run"
 }
-sha1sums=('a3bdc46b980e44dae74dae78777919691cf1b4f0')
+sha1sums=('af0861bc79e387cba09dbca908d4e3820fd48b5e')
