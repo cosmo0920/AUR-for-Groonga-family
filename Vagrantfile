@@ -22,25 +22,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
+  pacman_conf = <<-CONF
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/\\$arch
+  CONF
+
   $script = <<-SCRIPT
   echo "Installing pkgbuild-introspection..."
   sudo pacman -Sy --noconfirm pkgbuild-introspection yajl
   echo "Installing yaourt..."
   cd ~
-  curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
-  tar zxvf package-query.tar.gz
-  cd package-query
-  makepkg -si --noconfirm
-  sudo pacman -U package-query-*.pkg.tar.xz --noconfirm
-  cd ~
-  curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
-  tar zxvf yaourt.tar.gz
-  cd yaourt
-  makepkg -si --noconfirm
-  sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm
-  cd ~
-  echo "enable parallel build..."
-  sudo sed -i -e 's/^#MAKEFLAGS/MAKEFLAGS/g' /etc/makepkg.conf
+  egrep --quiet "^[archlinuxfr]" /etc/pacman.conf
+  if [ $? -ne 0 ]; then
+    sudo sh -c "echo '#{pacman_conf}' >> /etc/pacman.conf"
+  fi
+  sudo pacman -Sy --noconfirm yaourt
   SCRIPT
 
   config.vm.provision :shell, inline: $script, privileged: false
