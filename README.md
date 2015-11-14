@@ -8,10 +8,10 @@ AUR PKGBUILD for Groonga
 * friso
 * swath
 * pgroonga
+* cutter (cutter-test_framework)
 
 ## x86 support only
 
 * groonga-normalizer-mysql
 * mariadb-with-mroonga
 * groonga-tokenizer-friso
-* cutter (cutter-test_framework)
