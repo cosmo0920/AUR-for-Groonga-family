@@ -14,3 +14,4 @@ AUR PKGBUILD for Groonga
 * groonga-normalizer-mysql
 * mariadb-with-mroonga
 * groonga-tokenizer-friso
+* cutter (cutter-test_framework)
