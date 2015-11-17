@@ -15,3 +15,7 @@ AUR PKGBUILD for Groonga
 * groonga-normalizer-mysql
 * mariadb-with-mroonga
 * groonga-tokenizer-friso
+
+## armv7h environment
+
+* Arch Linux armv7h on Wandboard dual
