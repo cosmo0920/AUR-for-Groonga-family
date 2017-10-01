@@ -5,7 +5,6 @@ AUR PKGBUILD for Groonga
 
 * groonga
 * groonga-gobject
-* friso
 * swath
 * pgroonga
 * cutter (cutter-test_framework)
@@ -14,8 +13,12 @@ AUR PKGBUILD for Groonga
 
 * groonga-normalizer-mysql
 * mariadb-with-mroonga
-* groonga-tokenizer-friso
 
 ## armv7h environment
 
 * Arch Linux armv7h on Wandboard dual
+
+## Obsoleted packages
+
+* friso
+* groonga-tokenizer-friso
