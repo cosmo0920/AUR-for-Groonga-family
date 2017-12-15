@@ -7,6 +7,9 @@ AUR PKGBUILD for Groonga
 * groonga-gobject
 * swath
 * pgroonga
+
+## x86, armv7h, and aarh64 support
+
 * cutter (cutter-test_framework)
 
 ## x86 support only
@@ -17,6 +20,10 @@ AUR PKGBUILD for Groonga
 ## armv7h environment
 
 * Arch Linux armv7h on Wandboard dual
+
+## aarch64 environment
+
+* Arch Linux aarch64 on PINE A64+ 2GB
 
 ## Obsoleted packages
 
