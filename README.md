@@ -11,10 +11,10 @@ AUR PKGBUILD for Groonga
 * groonga
 * groonga-gobject
 * pgroonga
+* groonga-normalizer-mysql
 
 ## x86 support only
 
-* groonga-normalizer-mysql
 * mariadb-with-mroonga
 
 ## armv7h environment
