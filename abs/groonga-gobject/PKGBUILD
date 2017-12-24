@@ -1,6 +1,6 @@
 pkgname=groonga-gobject
 pkgver=1.0.1
-pkgrel=4
+pkgrel=5
 pkgdesc="GObject wrapper of Groonga."
 arch=('i686' 'x86_64' 'armv7h' 'aarch64')
 url="http://groonga.org/"
