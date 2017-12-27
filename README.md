@@ -5,7 +5,7 @@ AUR PKGBUILD for Groonga
 
 * swath
 
-## x86, armv7h, and aarh64 support
+## x86, armv7h, and aarch64 support
 
 * cutter (cutter-test_framework)
 * groonga
