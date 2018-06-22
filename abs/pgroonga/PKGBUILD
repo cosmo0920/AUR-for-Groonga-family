@@ -28,6 +28,7 @@ package() {
 	echo "You need to upgrade EXTENSION pgroonga CASCADE, "
 	echo "In more detail, please refer to the PGroonga site's upgrading instructions:"
 	echo "http://pgroonga.github.io/upgrade/"
-
+        # Remove needless dotfiles
+        rm -rf "$pkgdir/.*"
 }
 sha1sums=('4247aa73715f7fcc2529983b5a0a03438c28a865')
