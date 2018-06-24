@@ -30,14 +30,22 @@ Server = http://repo.archlinux.fr/\\$arch
 
   $script = <<-SCRIPT
   echo "Installing pkgbuild-introspection..."
-  sudo pacman -Sy --noconfirm pkgbuild-introspection yajl
-  echo "Installing yaourt..."
+  sudo pacman -Sy --noconfirm yajl
+  curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
+  tar zxvf package-query.tar.gz
+  cd package-query
+  makepkg -si --noconfirm
+  sudo pacman -U package-query-*.pkg.tar.xz --noconfirm
   cd ~
-  egrep --quiet "^[archlinuxfr]" /etc/pacman.conf
-  if [ $? -ne 0 ]; then
-    sudo sh -c "echo '#{pacman_conf}' >> /etc/pacman.conf"
-  fi
-  sudo pacman -Sy --noconfirm yaourt
+  curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
+  tar zxvf yaourt.tar.gz
+  cd yaourt
+  makepkg -si --noconfirm
+  sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm
+  cd ~
+  echo "enable parallel build..."
+  sudo sed -i -e 's/^#MAKEFLAGS/MAKEFLAGS/g' /etc/makepkg.conf
+  yaourt -Sy --noconfirm pkgbuild-introspection
   SCRIPT
 
   config.vm.provision :shell, inline: $script, privileged: false
