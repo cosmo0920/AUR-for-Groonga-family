@@ -81,7 +81,8 @@ build() {
 package() {
     backup=('etc/mysql/my.cnf')
     install=mariadb.install
-    cd $srcdir/mariadb-$mariadbver-with-$pkgname-$pkgver
+    cd build
+
     make DESTDIR="$pkgdir" install
 
     # not needed for using Mroonga just for testing.
