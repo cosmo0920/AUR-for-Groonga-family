@@ -1,3 +1,5 @@
+# Maintainer: Hiroshi Hatake <cosmo0920.wp[at]gmail.com>
+
 pkgname=groonga
 pkgver=8.0.8
 pkgrel=1
