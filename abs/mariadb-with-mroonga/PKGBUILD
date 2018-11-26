@@ -1,3 +1,5 @@
+# Maintainer: Hiroshi Hatake <cosmo0920.wp[at]gmail.com>
+
 pkgname=mroonga
 pkgver=8.07
 pkgrel=1
