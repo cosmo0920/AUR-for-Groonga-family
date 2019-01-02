@@ -29,23 +29,15 @@ Server = http://repo.archlinux.fr/\\$arch
   CONF
 
   $script = <<-SCRIPT
-  echo "Installing pkgbuild-introspection..."
-  sudo pacman -Sy --noconfirm yajl
-  curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
-  tar zxvf package-query.tar.gz
-  cd package-query
+  sudo pacman -Sy --noconfirm yajl git
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
   makepkg -si --noconfirm
-  sudo pacman -U package-query-*.pkg.tar.xz --noconfirm
-  cd ~
-  curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz
-  tar zxvf yaourt.tar.gz
-  cd yaourt
-  makepkg -si --noconfirm
-  sudo pacman -U yaourt-*.pkg.tar.xz --noconfirm
   cd ~
   echo "enable parallel build..."
   sudo sed -i -e 's/^#MAKEFLAGS/MAKEFLAGS/g' /etc/makepkg.conf
-  yaourt -Sy --noconfirm pkgbuild-introspection
+  echo "Installing pkgbuild-introspection..."
+  yay -Sy --noconfirm pkgbuild-introspection
   SCRIPT
 
   config.vm.provision :shell, inline: $script, privileged: false
