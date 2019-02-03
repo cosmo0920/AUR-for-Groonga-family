@@ -29,3 +29,21 @@ AUR PKGBUILD for Groonga
 
 * friso
 * groonga-tokenizer-friso
+
+---
+
+## Build environment
+
+### prerequisites
+
+* packer
+* VirtualBox
+
+### Usage
+
+```
+$ cd packer-arch
+$ ./wrapacker --country JP
+$ cd -
+$ vagrant up
+```
