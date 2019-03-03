@@ -22,12 +22,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
-  pacman_conf = <<-CONF
-[archlinuxfr]
-SigLevel = Never
-Server = http://repo.archlinux.fr/\\$arch
-  CONF
-
   $script = <<-SCRIPT
   sudo pacman -Sy --noconfirm yajl git
   git clone https://aur.archlinux.org/yay.git
