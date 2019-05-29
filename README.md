@@ -8,7 +8,6 @@ AUR PKGBUILD for Groonga
 ## x86, armv7h, and aarch64 support
 
 * cutter (cutter-test_framework)
-* groonga
 * groonga-gobject
 * pgroonga
 * groonga-normalizer-mysql
@@ -16,6 +15,7 @@ AUR PKGBUILD for Groonga
 ## x86 support only
 
 * mariadb-with-mroonga
+* groonga
 
 ## armv7h environment
 
