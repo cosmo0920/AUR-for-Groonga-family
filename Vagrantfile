@@ -35,4 +35,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   SCRIPT
 
   config.vm.provision :shell, inline: $script, privileged: false
+  config.vm.synced_folder ".", "/vagrant", type: "nfs",
+                          linux__nfs_options: ['rw','no_subtree_check','all_squash','async']
 end
