@@ -3,7 +3,7 @@
 pkgname=mroonga
 pkgver=9.10
 pkgrel=2
-pkgdesc="Fast fulltext search on MySQL(MariaDB and groonga bundled package)."
+pkgdesc="Fast fulltext search on MySQL(MariaDB bundled Mroonga package)."
 mariadbver=10.4.11
 MYSQL_VERSION=mariadb-${mariadbver}
 arch=('i686' 'x86_64')
