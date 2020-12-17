@@ -1,6 +1,6 @@
 pkgname=groonga-tokenizer-friso
-pkgver=1.0.0
-pkgrel=2
+pkgver=1.1.0
+pkgrel=1
 pkgdesc="Friso tokenizer for Groonga."
 arch=('i686' 'x86_64')
 url="http://groonga.org/"
@@ -23,4 +23,4 @@ package() {
     make DESTDIR="$pkgdir" install
 }
 
-sha1sums=('9463ce4f990e5a2f5281b11df78ed81da5efbf00')
+sha1sums=('c3cb001a178dc59675784876ae32206a7ad2d886')
