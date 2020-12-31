@@ -32,6 +32,7 @@ AUR PKGBUILD for Groonga
 
 ## Experimental packages
 
+* snowball-c-git
 * kytea
 
 ---
