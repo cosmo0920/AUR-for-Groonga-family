@@ -25,10 +25,14 @@ AUR PKGBUILD for Groonga
 
 * Arch Linux aarch64 on PINE A64+ 2GB
 
-## Obsoleted packages
+## Reborned packages
 
 * friso
 * groonga-tokenizer-friso
+
+## Experimental packages
+
+* kytea
 
 ---
 
