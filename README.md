@@ -1,16 +1,13 @@
 AUR PKGBUILD for Groonga
 ===
 
-## x86 and armv7h support
-
-* swath
-
 ## x86, armv7h, and aarch64 support
 
 * cutter (cutter-test_framework)
 * groonga-gobject
 * pgroonga
 * groonga-normalizer-mysql
+* swath
 
 ## x86 support only
 
