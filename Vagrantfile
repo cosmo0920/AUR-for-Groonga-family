@@ -14,6 +14,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 
+  # set auto_update to false, if you do NOT want to check the correct
+  # additions version when booting this machine due to using NFS instead.
+  config.vbguest.auto_update = false
+
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.customize ["modifyvm", :id, "--cpus", "4"]
