@@ -4,3 +4,4 @@ src/
 *.tar.xz
 *.deb
 .vagrant/
+abs/snowball-c-git/snowball-c-git/
