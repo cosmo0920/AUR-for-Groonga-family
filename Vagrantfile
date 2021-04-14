@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "arch"
   config.vm.box_url = "./packer-arch/output/packer_arch_virtualbox.box"
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8888
 
   config.vm.network "private_network", ip: "192.168.33.107"
 
