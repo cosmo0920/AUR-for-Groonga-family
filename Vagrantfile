@@ -16,7 +16,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # set auto_update to false, if you do NOT want to check the correct
   # additions version when booting this machine due to using NFS instead.
-  config.vbguest.auto_update = false
+  if config.respond_to?(:vbguest)
+    config.vbguest.auto_update = false
+  end
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
