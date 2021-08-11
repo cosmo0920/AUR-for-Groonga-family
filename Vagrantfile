@@ -19,7 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if config.respond_to?(:vbguest)
     config.vbguest.auto_update = false
   end
-  config.ssh.shell = "bash"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
