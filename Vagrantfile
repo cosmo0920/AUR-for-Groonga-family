@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   $script = <<-SCRIPT
+  sudo pacman -Syu --noconfirm
   sudo pacman -Sy --noconfirm yajl git
   git clone https://aur.archlinux.org/yay.git
   cd yay
