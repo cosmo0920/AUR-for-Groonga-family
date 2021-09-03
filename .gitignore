@@ -2,6 +2,8 @@ pkg/
 src/
 *.tar.gz
 *.tar.xz
+*.tar.zst
 *.deb
 .vagrant/
 abs/snowball-c-git/snowball-c-git/
+abs/groonga-tokenizer-friso-master/
