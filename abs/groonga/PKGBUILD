@@ -33,7 +33,7 @@ build() {
     --with-mecab \
     --enable-mruby
 
-    make -j$(nproc || PATH="/sbin:$PATH" sysctl -n hw.ncpu)
+    make -j$(nproc)
 }
 
 package_groonga-doc() {
